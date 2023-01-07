@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Q1. Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype.</h2>
+    <pre>
+        const ParentObj = {
+            calAge : function(){
+                console.log(`${this.fname} ${this.lname} ${this.age}`)
+            }
+        }
+        
+        const childObj = Object.create(ParentObj);
+        childObj.fname = "Ash";
+        childObj.lname = "yadav";
+        childObj.age= 24;
+        
+        console.log(childObj);
+        // childObj.calAge();
+        
+        const childObj1 = Object.create(ParentObj);
+        childObj1.fname = "Rahul";
+        childObj1.lname = "Dravid";
+        childObj1.age = 20;
+        
+        // childObj1.calAge();
+        console.log(childObj1);
+    </pre>
+
+    <h2>Q2. Write code to explain prototype chaining</h2>
+    <pre>
+        class Person {
+            constructor() {
+              this.gender = 'male';
+            }
+            printPerson() {}
+          }
+          class User extends Person {
+            constructor() {
+              super();
+              this.name = 'Abhraham';
+            }
+            printUser() {}
+          }
+          var u = new User();
+          console.log(u);
+    </pre>
+    <h2>Output:-User {gender: 'male',name: 'Abhraham'}</h2>
+    <h2>Q3. Add a method to calculate sum of all elements in Array in array's protype, use that method to calculate sum for multiple arrays.</h2>
+    <pre>
+        const ParentObj = {
+            sum : function(arr) { 
+            let sum = 0; 
+            for (let i = 0; i < arr.length; i++){
+                sum += arr[i]; 
+            }
+            console.log(sum); 
+        }    
+        }
+        let arr1=[1,2,3,4,5];
+        let arr2=[1,2,3,4,5,6];
+        let arr3=[1,2,3,4,5,6,7];
+        
+        ParentObj.sum(arr1); 
+        ParentObj.sum(arr2);
+        ParentObj.sum(arr3);
+    
+    </pre>
+    <h2>Output: = 15 21 28</h2>
+
+    <h2>Q.4 Write a JavaScript function to retrieve all the names of object's own and inherited properties.</h2>
+    <pre>
+        var myobj ={
+            name : "John",
+            batch : "EA18",
+            year : 2022,
+          }
+          let result = Object.keys(myobj);
+          console.log(result);
+    </pre>
+    <h2>Output:-[ 'name', 'batch', 'year' ]</h2>
+</body>
+</html>
